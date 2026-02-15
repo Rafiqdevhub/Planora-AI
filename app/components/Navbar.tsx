@@ -1,6 +1,7 @@
 import { Box } from "lucide-react";
 import Button from "./ui/Button";
 import { useOutletContext } from "react-router";
+import { Link } from "react-router";
 
 const Navbar = () => {
   const { isSignedIn, userName, signIn, signOut } =
@@ -27,24 +28,23 @@ const Navbar = () => {
   return (
     <header className="navbar">
       <nav className="inner">
-        <div className="brand">
+        <Link to="/" className="brand" title="Go to home">
           <Box className="logo" />
-
           <span className="name">Planora</span>
-        </div>
+        </Link>
 
         <ul className="links">
           <li>
-            <a href="#">Product</a>
+            <a href="/product">Product</a>
           </li>
           <li>
-            <a href="#">Pricing</a>
+            <a href="/pricing">Pricing</a>
           </li>
           <li>
-            <a href="#">Community</a>
+            <a href="/community">Community</a>
           </li>
           <li>
-            <a href="#">Enterprise</a>
+            <a href="/enterprise">Enterprise</a>
           </li>
         </ul>
 

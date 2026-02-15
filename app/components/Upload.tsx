@@ -17,8 +17,15 @@ const Upload = ({ onComplete }: UploadProps) => {
   const [progress, setProgress] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const progressBarRef = useRef<HTMLDivElement | null>(null);
 
   const { isSignedIn } = useOutletContext<AuthContext>();
+
+  useEffect(() => {
+    if (progressBarRef.current) {
+      progressBarRef.current.style.setProperty("--progress", `${progress}%`);
+    }
+  }, [progress]);
 
   useEffect(() => {
     return () => {
@@ -118,6 +125,8 @@ const Upload = ({ onComplete }: UploadProps) => {
             accept=".jpg,.jpeg,.png,.webp"
             disabled={!isSignedIn}
             onChange={handleChange}
+            title="Upload a floor plan image"
+            aria-label="Upload floor plan image"
           />
 
           <div className="drop-content">
@@ -146,7 +155,11 @@ const Upload = ({ onComplete }: UploadProps) => {
             <h3>{file.name}</h3>
 
             <div className="progress">
-              <div className="bar" style={{ width: `${progress}%` }} />
+              <div
+                ref={progressBarRef}
+                className="bar"
+                data-progress={progress}
+              />
 
               <p className="status-text">
                 {progress < 100 ? "Analyzing Floor Plan..." : "Redirecting..."}
