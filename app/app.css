@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -8,8 +9,9 @@
   --color-primary: #f97316;
   --color-secondary: #3b82f6;
   --color-accent: #8b5cf6;
-  --font-serif: "Instrument Serif", serif;
-  --font-sans: Inter, sans-serif;
+  --font-serif: "Tinos", "Instrument Serif", serif;
+  --font-sans:
+    "DM Serif Text", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --shadow-neobrutalism: 4px 4px 0px 0px rgba(0, 0, 0, 1);
 }
 
@@ -107,26 +109,24 @@
     @apply fixed top-0 w-full z-50 bg-background/90 backdrop-blur-sm border-b border-black/5;
 
     .inner {
-      @apply max-w-7xl mx-auto px-6 h-16 flex items-center justify-between;
+      @apply max-w-7xl mx-auto px-6 h-16 flex items-center justify-center gap-12;
 
-      .left {
-        @apply flex items-center space-x-8;
+      .brand {
+        @apply flex items-center space-x-2 cursor-pointer flex-shrink-0;
 
-        .brand {
-          @apply flex items-center space-x-2 cursor-pointer;
-
-          .logo {
-            @apply w-6 h-6 text-black;
-          }
-
-          .name {
-            @apply text-xl font-serif font-bold text-black tracking-tight;
-          }
+        .logo {
+          @apply w-6 h-6 text-black;
         }
 
-        .links {
-          @apply hidden md:flex items-center space-x-6;
+        .name {
+          @apply text-xl font-serif font-bold text-black tracking-tight;
+        }
+      }
 
+      .links {
+        @apply hidden md:flex items-center space-x-6 flex-1 justify-center list-none m-0 p-0;
+
+        li {
           a {
             @apply text-sm font-medium text-zinc-600 hover:text-black transition-colors;
           }
@@ -594,6 +594,78 @@
 
     &.loading {
       @apply text-sm text-zinc-500;
+    }
+  }
+
+  .footer {
+    @apply bg-zinc-900 text-zinc-100 py-16 border-t border-zinc-800;
+
+    .footer-content {
+      @apply max-w-7xl mx-auto px-6;
+
+      .footer-grid {
+        @apply grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-12;
+
+        .footer-column {
+          @apply flex flex-col;
+
+          &:first-child {
+            @apply lg:col-span-1;
+
+            .brand {
+              @apply flex items-center space-x-2 mb-4;
+
+              .logo {
+                @apply w-6 h-6 text-primary;
+              }
+
+              .name {
+                @apply text-lg font-serif font-bold text-white tracking-tight;
+              }
+            }
+
+            .description {
+              @apply text-sm text-zinc-400 leading-relaxed;
+            }
+          }
+
+          h4 {
+            @apply text-sm font-bold uppercase tracking-wider text-white mb-4;
+          }
+
+          ul {
+            @apply space-y-3;
+
+            li {
+              a {
+                @apply text-sm text-zinc-400 hover:text-primary transition-colors duration-200;
+              }
+            }
+          }
+        }
+      }
+
+      .footer-bottom {
+        @apply border-t border-zinc-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-6;
+
+        .footer-info {
+          .copyright {
+            @apply text-xs text-zinc-500;
+          }
+        }
+
+        .social-links {
+          @apply flex items-center space-x-5;
+
+          a {
+            @apply text-zinc-400 hover:text-primary transition-colors duration-200;
+
+            &:hover {
+              @apply transform scale-110;
+            }
+          }
+        }
+      }
     }
   }
 }

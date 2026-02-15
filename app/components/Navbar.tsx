@@ -27,20 +27,26 @@ const Navbar = () => {
   return (
     <header className="navbar">
       <nav className="inner">
-        <div className="left">
-          <div className="brand">
-            <Box className="logo" />
+        <div className="brand">
+          <Box className="logo" />
 
-            <span className="name">Planora</span>
-          </div>
-
-          <ul className="links">
-            <a href="#">Product</a>
-            <a href="#">Pricing</a>
-            <a href="#">Community</a>
-            <a href="#">Enterprise</a>
-          </ul>
+          <span className="name">Planora</span>
         </div>
+
+        <ul className="links">
+          <li>
+            <a href="#">Product</a>
+          </li>
+          <li>
+            <a href="#">Pricing</a>
+          </li>
+          <li>
+            <a href="#">Community</a>
+          </li>
+          <li>
+            <a href="#">Enterprise</a>
+          </li>
+        </ul>
 
         <div className="actions">
           {isSignedIn ? (
