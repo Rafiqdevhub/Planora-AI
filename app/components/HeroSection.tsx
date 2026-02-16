@@ -15,19 +15,25 @@ export function HeroSection({ onUploadComplete }: HeroSectionProps) {
           <div className="pulse"></div>
         </div>
 
-        <p>Introducing Planora 1.0</p>
+        <p>Introducing Planora 1.0 - AI-Powered Architectural Visualization</p>
       </div>
 
-      <h1>Build beautiful spaces at the speed of thought with Planora</h1>
+      <h1>
+        AI Architectural Visualization: Transform Floor Plans to 3D Renders in
+        Minutes
+      </h1>
 
       <p className="subtitle">
-        Planora is an AI-powered architectural visualization platform that
-        transforms 2D floor plans into photorealistic 3D renders in minutes.
+        Planora is an advanced AI-powered architectural visualization platform
+        that instantly transforms 2D floor plans into stunning photorealistic 3D
+        architectural renderings. Visualize your architectural designs, interior
+        layouts, and building concepts with cutting-edge AI technology in just
+        minutes.
       </p>
 
       <div className="actions">
         <a href="#upload" className="cta">
-          Start Building <ArrowRight className="icon" />
+          Visualize Your Floor Plan <ArrowRight className="icon" />
         </a>
       </div>
       <div id="upload" className="upload-shell">
@@ -39,8 +45,12 @@ export function HeroSection({ onUploadComplete }: HeroSectionProps) {
               <Layers className="icon" />
             </div>
 
-            <h3>Upload your floor plan</h3>
-            <p>Supports JPG, PNG, formats up to 10MB</p>
+            <h3>Upload Your Floor Plan for 3D Visualization</h3>
+            <p>
+              Convert your architectural floor plans to photorealistic 3D
+              renders. Supports JPG, PNG formats up to 10MB - AI-powered instant
+              rendering
+            </p>
           </div>
 
           <Upload onComplete={onUploadComplete} />

@@ -121,7 +121,6 @@ const VisualizerId = () => {
       <nav className="topbar">
         <div className="brand">
           <Box className="logo" />
-
           <span className="name">Planora</span>
         </div>
         <Button variant="ghost" size="sm" onClick={handleBack} className="exit">

@@ -9,6 +9,7 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
+    "@formspree/react": "^3.0.0",
     "@heyputer/puter.js": "^2.2.10",
     "@react-router/node": "7.12.0",
     "@react-router/serve": "7.12.0",

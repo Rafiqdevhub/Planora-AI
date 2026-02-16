@@ -805,4 +805,502 @@
       @apply bg-primary hover:bg-[#EA580C];
     }
   }
+
+  /* About Page Styles */
+  .hero-gradient {
+    @apply relative py-32 md:py-48 bg-gradient-to-br from-blue-50 via-white to-purple-50 border-b border-zinc-100 overflow-hidden;
+
+    &::before {
+      @apply absolute inset-0 opacity-30 pointer-events-none;
+      background-image:
+        radial-gradient(
+          circle at 20% 50%,
+          rgba(59, 130, 246, 0.1) 0%,
+          transparent 50%
+        ),
+        radial-gradient(
+          circle at 80% 80%,
+          rgba(139, 92, 246, 0.1) 0%,
+          transparent 50%
+        );
+    }
+  }
+
+  .hero-content {
+    @apply relative z-10 max-w-7xl mx-auto px-6;
+  }
+
+  .hero-badge {
+    @apply inline-flex items-center px-4 py-2 bg-white border border-zinc-200 rounded-full text-sm font-semibold text-zinc-700 mb-6 shadow-sm;
+  }
+
+  .hero-title {
+    @apply text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-zinc-900 mb-6 leading-[1.1];
+
+    .gradient-text {
+      @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+    }
+  }
+
+  .hero-description {
+    @apply text-lg md:text-xl text-zinc-600 max-w-2xl mb-10 leading-relaxed;
+  }
+
+  .hero-stats {
+    @apply grid grid-cols-3 gap-8 mt-12 max-w-2xl;
+
+    .stat-item {
+      @apply flex flex-col;
+
+      .stat-number {
+        @apply text-3xl md:text-4xl font-bold text-zinc-900;
+      }
+
+      .stat-label {
+        @apply text-sm text-zinc-500 mt-2;
+      }
+    }
+  }
+
+  .section-header {
+    @apply mb-12 max-w-3xl;
+
+    h2 {
+      @apply text-4xl md:text-5xl font-serif font-bold text-zinc-900 mb-4;
+    }
+
+    .section-subtitle {
+      @apply text-lg text-zinc-600;
+    }
+  }
+
+  .feature-card {
+    @apply bg-white rounded-2xl p-8 border border-zinc-100 shadow-sm transition-all duration-300 relative overflow-hidden;
+
+    &::before {
+      @apply absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 transition-opacity duration-300;
+      content: "";
+    }
+
+    &.card-hover {
+      @apply hover:shadow-xl hover:border-blue-200 hover:scale-105;
+
+      &::before {
+        @apply opacity-100;
+      }
+    }
+
+    .feature-icon {
+      @apply text-5xl mb-4;
+    }
+
+    h3 {
+      @apply text-xl font-serif font-bold text-zinc-900 mb-3;
+    }
+
+    p {
+      @apply text-zinc-600 leading-relaxed mb-4;
+    }
+
+    .feature-badge {
+      @apply inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full;
+    }
+  }
+
+  .benefits-list {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6;
+  }
+
+  .benefit-item {
+    @apply bg-gradient-to-br from-white to-zinc-50 rounded-2xl p-8 border border-zinc-100 shadow-sm;
+
+    &.benefit-item-animated {
+      @apply transition-all duration-300;
+
+      &:hover {
+        @apply shadow-lg border-blue-200 translate-y-[-4px];
+      }
+    }
+
+    .benefit-icon {
+      @apply text-4xl mb-4;
+    }
+
+    h3 {
+      @apply text-lg font-serif font-bold text-zinc-900 mb-3;
+    }
+
+    p {
+      @apply text-zinc-600 leading-relaxed;
+    }
+  }
+
+  .use-cases-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6;
+  }
+
+  .use-case-card {
+    @apply bg-white rounded-2xl p-8 border border-zinc-100 shadow-sm relative transition-all duration-300;
+
+    &.use-case-hover {
+      @apply hover:shadow-xl hover:border-blue-200;
+
+      &:hover {
+        .use-case-number {
+          @apply text-blue-600;
+        }
+
+        .use-case-link {
+          @apply text-blue-600 translate-x-2;
+        }
+      }
+    }
+
+    .use-case-number {
+      @apply text-6xl font-bold text-zinc-200 mb-4 transition-colors duration-300;
+    }
+
+    h3 {
+      @apply text-xl font-serif font-bold text-zinc-900 mb-3;
+    }
+
+    p {
+      @apply text-zinc-600 leading-relaxed mb-6;
+    }
+
+    .use-case-link {
+      @apply text-sm font-semibold text-zinc-900 transition-all duration-300 inline-flex items-center;
+
+      &:hover {
+        @apply text-blue-600;
+      }
+    }
+  }
+
+  .cta-gradient {
+    @apply py-24 bg-gradient-to-r from-blue-600 to-purple-600 relative overflow-hidden;
+
+    &::before {
+      @apply absolute inset-0 opacity-10 pointer-events-none;
+      background-image: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 70%
+      );
+    }
+  }
+
+  .cta-content {
+    @apply relative z-10 max-w-7xl mx-auto px-6 text-center;
+
+    h2 {
+      @apply text-4xl md:text-5xl font-serif font-bold text-white mb-4;
+    }
+
+    p {
+      @apply text-lg text-white/90 mb-8 max-w-2xl mx-auto;
+    }
+
+    .cta-buttons {
+      @apply flex flex-col sm:flex-row gap-4 justify-center mb-8;
+    }
+
+    .cta-footer-text {
+      @apply text-sm text-white/80;
+    }
+  }
+
+  .cta-button {
+    @apply inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold transition-all duration-300 text-base;
+
+    &.cta-primary {
+      @apply bg-white text-blue-600 hover:bg-zinc-100 shadow-lg hover:shadow-xl;
+    }
+
+    &.cta-secondary {
+      @apply bg-white/20 text-white border-2 border-white/40 hover:bg-white/30 hover:border-white/60;
+    }
+  }
+
+  /* Feature Grid Enhancement */
+  .features-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6;
+
+    .feature-card {
+      @apply bg-white rounded-2xl p-8 border border-zinc-100 shadow-sm hover:shadow-xl hover:border-blue-200 transition-all duration-300;
+
+      h3 {
+        @apply text-lg font-serif font-bold text-zinc-900 mb-3;
+      }
+
+      p {
+        @apply text-sm text-zinc-600 leading-relaxed;
+      }
+    }
+  }
+
+  /* Contact Form Styles */
+  .contact-page {
+    @apply bg-white;
+  }
+
+  .contact-hero {
+    @apply mb-16;
+
+    h1 {
+      @apply text-5xl md:text-6xl font-serif font-bold text-zinc-900 mb-6;
+    }
+
+    .contact-subtitle {
+      @apply text-xl text-zinc-600 max-w-2xl;
+    }
+  }
+
+  .contact-info-section {
+    @apply mb-20;
+
+    h2 {
+      @apply text-4xl font-serif font-bold text-zinc-900 mb-12;
+    }
+
+    .contact-methods {
+      @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8;
+
+      .contact-method {
+        @apply bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border border-blue-100 hover:shadow-lg transition-all duration-300;
+
+        .method-icon {
+          @apply w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-600;
+
+          svg {
+            @apply w-6 h-6;
+          }
+        }
+
+        h3 {
+          @apply text-lg font-serif font-bold text-zinc-900 mb-3;
+        }
+
+        p {
+          @apply text-sm text-zinc-600 mb-2;
+
+          a {
+            @apply text-blue-600 font-semibold hover:text-blue-700 transition-colors;
+          }
+        }
+
+        .method-desc {
+          @apply text-xs text-zinc-500 font-normal;
+        }
+      }
+    }
+  }
+
+  .contact-form-section {
+    @apply mb-20;
+
+    .form-container {
+      @apply max-w-2xl mx-auto bg-white rounded-2xl border border-zinc-100 p-8 md:p-12 shadow-lg;
+
+      .form-header {
+        @apply mb-8;
+
+        h2 {
+          @apply text-3xl font-serif font-bold text-zinc-900 mb-3;
+        }
+
+        p {
+          @apply text-zinc-600;
+        }
+      }
+
+      .contact-form {
+        @apply space-y-6;
+
+        .form-group {
+          @apply flex flex-col;
+
+          label {
+            @apply text-sm font-semibold text-zinc-900 mb-2;
+          }
+
+          input,
+          textarea,
+          select {
+            @apply w-full px-4 py-3 rounded-lg border border-zinc-200 bg-white text-zinc-900 placeholder-zinc-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+
+            &:hover {
+              @apply border-zinc-300;
+            }
+          }
+
+          textarea {
+            @apply resize-y min-h-32;
+          }
+        }
+
+        .form-row {
+          @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+        }
+
+        .btn {
+          @apply w-full mt-4;
+        }
+      }
+
+      .form-success {
+        @apply text-center py-12;
+
+        .success-icon {
+          @apply text-6xl text-green-500 mb-4 animate-bounce;
+        }
+
+        h3 {
+          @apply text-2xl font-serif font-bold text-zinc-900 mb-3;
+        }
+
+        p {
+          @apply text-zinc-600 mb-6;
+        }
+
+        .btn {
+          @apply max-w-xs mx-auto;
+        }
+      }
+
+      .form-error {
+        @apply text-center py-12;
+
+        .error-icon {
+          @apply text-6xl text-red-500 mb-4;
+        }
+
+        h3 {
+          @apply text-2xl font-serif font-bold text-zinc-900 mb-3;
+        }
+
+        p {
+          @apply text-zinc-600 mb-6;
+        }
+
+        .btn {
+          @apply max-w-xs mx-auto;
+        }
+      }
+
+      .form-alert {
+        @apply rounded-lg p-4 mb-6 border;
+
+        &.form-alert-error {
+          @apply bg-red-50 border-red-200;
+
+          .alert-title {
+            @apply text-sm font-bold text-red-700 mb-2;
+          }
+
+          .alert-message {
+            @apply text-sm text-red-600 leading-relaxed;
+          }
+        }
+
+        &.form-alert-success {
+          @apply bg-green-50 border-green-200;
+
+          .alert-title {
+            @apply text-sm font-bold text-green-700 mb-2;
+          }
+
+          .alert-message {
+            @apply text-sm text-green-600 leading-relaxed;
+          }
+        }
+
+        &.form-alert-warning {
+          @apply bg-yellow-50 border-yellow-200;
+
+          .alert-title {
+            @apply text-sm font-bold text-yellow-700 mb-2;
+          }
+
+          .alert-message {
+            @apply text-sm text-yellow-600 leading-relaxed;
+          }
+        }
+      }
+    }
+  }
+
+  /* Formspree ValidationError Styling */
+  .formspree-error {
+    @apply text-sm text-red-600 font-semibold mt-2;
+  }
+
+  .support-channels-section {
+    @apply mb-20;
+
+    h2 {
+      @apply text-4xl font-serif font-bold text-zinc-900 mb-12;
+    }
+
+    .support-grid {
+      @apply grid grid-cols-1 md:grid-cols-3 gap-8;
+
+      .support-card {
+        @apply bg-white rounded-2xl p-8 border border-zinc-100 shadow-sm hover:shadow-lg transition-all duration-300;
+
+        h3 {
+          @apply text-xl font-serif font-bold text-zinc-900 mb-3;
+        }
+
+        p {
+          @apply text-zinc-600 mb-6 leading-relaxed;
+        }
+
+        .btn {
+          @apply inline-block;
+        }
+      }
+    }
+  }
+
+  .contact-faq-section {
+    @apply mb-20;
+
+    h2 {
+      @apply text-4xl font-serif font-bold text-zinc-900 mb-12;
+    }
+
+    .faq-grid {
+      @apply grid grid-cols-1 md:grid-cols-2 gap-8;
+
+      .faq-item {
+        @apply bg-zinc-50 rounded-2xl p-8 border border-zinc-100 hover:border-blue-200 hover:shadow-md transition-all duration-300;
+
+        h3 {
+          @apply text-lg font-serif font-bold text-zinc-900 mb-3;
+        }
+
+        p {
+          @apply text-zinc-600 leading-relaxed;
+        }
+      }
+    }
+  }
+
+  .contact-cta {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12 text-center text-white mb-0;
+
+    h2 {
+      @apply text-3xl font-serif font-bold mb-3;
+    }
+
+    p {
+      @apply text-lg opacity-90 mb-6;
+    }
+
+    .btn {
+      @apply bg-white text-blue-600 hover:bg-zinc-100;
+    }
+  }
 }

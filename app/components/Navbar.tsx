@@ -34,16 +34,13 @@ const Navbar = () => {
 
         <ul className="links">
           <li>
-            <a href="/product">Product</a>
+            <a href="/about">About</a>
           </li>
           <li>
             <a href="/pricing">Pricing</a>
           </li>
           <li>
-            <a href="/community">Community</a>
-          </li>
-          <li>
-            <a href="/enterprise">Enterprise</a>
+            <a href="/contact">Contact</a>
           </li>
         </ul>
 
