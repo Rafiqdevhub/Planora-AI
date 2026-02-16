@@ -22,13 +22,19 @@ export const meta: MetaFunction = () => {
 };
 
 const Contact = () => {
-  const formspreeId = import.meta.env.VITE_FORMSPREE_ID;
+  let formspreeId = import.meta.env.VITE_FORMSPREE_ID || "";
 
-  if (!formspreeId) {
-    console.error("VITE_FORMSPREE_ID environment variable is not set");
+  if (formspreeId.includes("formspree.io/f/")) {
+    formspreeId = formspreeId.split("formspree.io/f/")[1];
   }
 
-  const [state, handleSubmit] = useForm(formspreeId || "");
+  if (!formspreeId) {
+    console.error(
+      "VITE_FORMSPREE_ID environment variable is not set. Please add it to your .env.local file with your Formspree form ID.",
+    );
+  }
+
+  const [state, handleSubmit] = useForm(formspreeId);
   const formRef = useRef<HTMLFormElement>(null);
 
   return (
