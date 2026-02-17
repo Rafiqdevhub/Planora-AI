@@ -30,9 +30,7 @@ export function Footer() {
               <li>
                 <a href="#">Security</a>
               </li>
-              <li>
-                <a href="#">Roadmap</a>
-              </li>
+          
             </ul>
           </div>
 
