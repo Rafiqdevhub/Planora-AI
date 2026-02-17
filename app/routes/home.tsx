@@ -1,6 +1,7 @@
 import Navbar from "~/components/Navbar";
-import { HeroSection } from "~/components/HeroSection";
-import { ProjectsSection } from "~/components/ProjectsSection";
+import { HeroSection } from "~/components/HomeSctions/HeroSection";
+import { ProjectsSection } from "~/components/HomeSctions/ProjectsSection";
+import { FeaturesSection } from "~/components/HomeSctions/FeaturesSection";
 import { Footer } from "~/components/Footer";
 import type { Route } from "./+types/home";
 import { useEffect, useRef, useState } from "react";
@@ -81,6 +82,7 @@ const Home = () => {
         projects={projects}
         onProjectClick={(id) => navigate(`/visualizer/${id}`)}
       />
+      <FeaturesSection />
       <Footer />
     </div>
   );

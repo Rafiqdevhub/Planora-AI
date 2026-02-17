@@ -40,55 +40,72 @@ const Contact = () => {
   return (
     <div className="contact-page">
       <Navbar />
-      <main className="content-section">
-        <div className="section-inner">
-          <section className="contact-hero">
-            <h1>Get in Touch with Planora</h1>
+      <main className="contact-main">
+        <section className="contact-hero">
+          <div className="contact-hero__inner">
+            <span className="contact-badge">Planora Support</span>
+            <h1>Tell us what you are building. We will help you ship it.</h1>
             <p className="contact-subtitle">
-              Have questions about AI architectural visualization? Our team is
-              here to help. Reach out for support, sales inquiries, or
-              partnership opportunities.
+              Reach out for product guidance, pricing questions, or partnership
+              opportunities. Our team answers most requests within the same
+              business day.
             </p>
-          </section>
+            <div className="contact-hero__meta">
+              <div className="meta-card">
+                <h4>Average response</h4>
+                <p>2-4 business hours</p>
+              </div>
+              <div className="meta-card">
+                <h4>Support coverage</h4>
+                <p>Mon-Fri, 9:00-18:00 PKT</p>
+              </div>
+              <div className="meta-card">
+                <h4>Dedicated success</h4>
+                <p>Enterprise onboarding included</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-          <section className="contact-form-section">
-            <div className="form-container">
+        <section className="contact-shell">
+          <div className="contact-grid">
+            <div className="contact-form-panel">
               <div className="form-header">
-                <h2>Send us a Message</h2>
+                <h2>Send a message</h2>
                 <p>
-                  Fill out the form below and we'll get back to you as soon as
-                  possible
+                  Share a few details about your project. We will route you to
+                  the right specialist.
                 </p>
               </div>
 
               {state.succeeded ? (
-                <div className="form-success">
-                  <div className="success-icon">✓</div>
-                  <h3>Message Sent Successfully!</h3>
+                <div className="contact-state contact-state--success">
+                  <div className="state-icon">OK</div>
+                  <h3>Message sent</h3>
                   <p>
-                    Thank you for reaching out. Our team will get back to you
-                    within 2-4 business hours.
+                    Thanks for reaching out. We will reply within 2-4 business
+                    hours.
                   </p>
                   <button
                     onClick={() => window.location.reload()}
-                    className="btn btn--primary btn--large"
+                    className="btn btn--primary btn--lg btn--full"
                   >
-                    Send Another Message
+                    Send another message
                   </button>
                 </div>
               ) : state.errors && Object.keys(state.errors).length > 0 ? (
-                <div className="form-error">
-                  <div className="error-icon">✕</div>
-                  <h3>Submission Failed</h3>
+                <div className="contact-state contact-state--error">
+                  <div className="state-icon">Error</div>
+                  <h3>Submission failed</h3>
                   <p>
-                    We encountered an error while processing your message.
-                    Please check the form below and try again.
+                    We could not process your message. Please review the form
+                    and try again.
                   </p>
                   <button
                     onClick={() => window.location.reload()}
-                    className="btn btn--primary btn--large"
+                    className="btn btn--primary btn--lg btn--full"
                   >
-                    Try Again
+                    Try again
                   </button>
                 </div>
               ) : (
@@ -98,23 +115,23 @@ const Contact = () => {
                   className="contact-form"
                 >
                   <div className="form-group">
-                    <label htmlFor="type">Inquiry Type *</label>
+                    <label htmlFor="type">Inquiry type *</label>
                     <select
                       id="type"
                       name="type"
                       defaultValue="support"
                       required
                     >
-                      <option value="support">Technical Support</option>
-                      <option value="sales">Sales & Pricing</option>
-                      <option value="partnership">Partnership Inquiry</option>
-                      <option value="feedback">Feedback & Comments</option>
+                      <option value="support">Technical support</option>
+                      <option value="sales">Sales and pricing</option>
+                      <option value="partnership">Partnership inquiry</option>
+                      <option value="feedback">Feedback and comments</option>
                     </select>
                   </div>
 
                   <div className="form-row">
                     <div className="form-group">
-                      <label htmlFor="name">Full Name *</label>
+                      <label htmlFor="name">Full name *</label>
                       <input
                         type="text"
                         id="name"
@@ -125,7 +142,7 @@ const Contact = () => {
                       <ValidationError field="name" errors={state.errors} />
                     </div>
                     <div className="form-group">
-                      <label htmlFor="email">Email Address *</label>
+                      <label htmlFor="email">Email address *</label>
                       <input
                         type="email"
                         id="email"
@@ -139,7 +156,7 @@ const Contact = () => {
 
                   <div className="form-row">
                     <div className="form-group">
-                      <label htmlFor="phone">Phone Number</label>
+                      <label htmlFor="phone">Phone number</label>
                       <input
                         type="tel"
                         id="phone"
@@ -149,7 +166,7 @@ const Contact = () => {
                       <ValidationError field="phone" errors={state.errors} />
                     </div>
                     <div className="form-group">
-                      <label htmlFor="company">Company/Organization</label>
+                      <label htmlFor="company">Company or studio</label>
                       <input
                         type="text"
                         id="company"
@@ -188,7 +205,7 @@ const Contact = () => {
                     state.errors.getFormErrors &&
                     state.errors.getFormErrors().length > 0 && (
                       <div className="form-alert form-alert-error">
-                        <p className="alert-title">⚠️ Form Error</p>
+                        <p className="alert-title">Form error</p>
                         {state.errors
                           .getFormErrors()
                           .map((error: any, index: number) => (
@@ -201,19 +218,59 @@ const Contact = () => {
 
                   <button
                     type="submit"
-                    className="btn btn--primary btn--large"
+                    className="btn btn--primary btn--lg btn--full"
                     disabled={state.submitting}
                   >
                     <Send className="icon" />
-                    {state.submitting ? "Sending..." : "Send Message"}
+                    {state.submitting ? "Sending..." : "Send message"}
                   </button>
                 </form>
               )}
             </div>
-          </section>
-        </div>
+
+            <aside className="contact-info-panel">
+              <div className="contact-info-card">
+                <h3>Talk to a specialist</h3>
+                <p>
+                  From floor-plan intake to final render delivery, we help you
+                  make every project client-ready.
+                </p>
+                <div className="contact-links">
+                  <div>
+                    <span>Sales</span>
+                    <a href="mailto:sales@planora.ai">sales@planora.ai</a>
+                  </div>
+                  <div>
+                    <span>Support</span>
+                    <a href="mailto:support@planora.ai">support@planora.ai</a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="contact-info-card">
+                <h3>Visit our studios</h3>
+                <p>We operate across three design hubs.</p>
+                <ul className="contact-list">
+                  <li>Lahore, PK</li>
+                  <li>Dubai, AE</li>
+                  <li>London, UK</li>
+                </ul>
+              </div>
+
+              <div className="contact-info-card contact-info-card--accent">
+                <h3>Fast onboarding</h3>
+                <p>
+                  Get a dedicated success manager and a workflow template
+                  tailored to your studio.
+                </p>
+                <button className="btn btn--secondary btn--full">
+                  Book a walkthrough
+                </button>
+              </div>
+            </aside>
+          </div>
+        </section>
       </main>
-      <Footer />
     </div>
   );
 };

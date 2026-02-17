@@ -692,6 +692,10 @@
     .feature-card {
       @apply bg-zinc-50 rounded-xl p-6 border border-zinc-200 hover:border-primary hover:shadow-lg transition-all duration-300;
 
+      .feature-icon {
+        @apply w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4;
+      }
+
       h3 {
         @apply text-lg font-serif font-bold text-zinc-900 mb-3;
       }
@@ -702,43 +706,231 @@
     }
   }
 
+  .pricing-main {
+    @apply bg-[#f7f4ef] text-zinc-900;
+  }
+
+  .pricing-hero {
+    @apply relative pt-28 pb-16 overflow-hidden;
+    background:
+      radial-gradient(
+        circle at 20% 20%,
+        rgba(249, 115, 22, 0.15),
+        transparent 45%
+      ),
+      radial-gradient(
+        circle at 80% 0%,
+        rgba(59, 130, 246, 0.12),
+        transparent 50%
+      ),
+      linear-gradient(180deg, #fdfbf7 0%, #f7f4ef 100%);
+  }
+
+  .pricing-hero::after {
+    @apply absolute inset-0 pointer-events-none opacity-40;
+    background-image:
+      radial-gradient(
+        circle at 15% 35%,
+        rgba(0, 0, 0, 0.08) 0%,
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 85% 65%,
+        rgba(0, 0, 0, 0.06) 0%,
+        transparent 45%
+      );
+  }
+
+  .pricing-hero__inner {
+    @apply relative z-10 max-w-6xl mx-auto px-6 text-center;
+  }
+
+  .pricing-badge {
+    @apply inline-flex items-center px-4 py-2 rounded-full text-xs font-bold uppercase tracking-[0.2em] bg-white/80 text-zinc-700 border border-white shadow-sm;
+  }
+
+  .pricing-hero h1 {
+    @apply text-4xl md:text-6xl font-serif font-bold text-zinc-900 mt-6 mb-6 leading-[1.05];
+  }
+
+  .pricing-subtitle {
+    @apply text-lg md:text-xl text-zinc-600 max-w-3xl mx-auto leading-relaxed;
+  }
+
+  .pricing-cta {
+    @apply mt-8 flex flex-col sm:flex-row items-center justify-center gap-4;
+  }
+
+  .pricing-highlights {
+    @apply mt-10 grid grid-cols-1 md:grid-cols-3 gap-4;
+  }
+
+  .highlight-card {
+    @apply bg-white/80 border border-white rounded-2xl p-5 text-left shadow-sm;
+    backdrop-filter: blur(6px);
+  }
+
+  .highlight-card h4 {
+    @apply text-base font-semibold text-zinc-900 mb-2;
+  }
+
+  .highlight-card p {
+    @apply text-sm text-zinc-600;
+  }
+
+  .pricing-features {
+    @apply mt-8 text-sm text-zinc-500 font-semibold tracking-wide;
+  }
+
+  .pricing-shell {
+    @apply relative z-10 max-w-6xl mx-auto px-6 pb-20;
+  }
+
+  .pricing-toggle {
+    @apply mt-8 mb-10 flex items-center justify-center gap-4 text-sm font-semibold text-zinc-600;
+  }
+
+  .toggle-pill {
+    @apply w-16 h-8 rounded-full bg-white border border-zinc-200 flex items-center px-1 shadow-sm;
+  }
+
+  .toggle-dot {
+    @apply w-6 h-6 rounded-full bg-primary shadow-sm;
+    animation: pricing-toggle 3s ease-in-out infinite;
+  }
+
+  .toggle-label.is-active {
+    @apply text-zinc-900;
+  }
+
   .pricing-grid {
     @apply grid grid-cols-1 md:grid-cols-3 gap-8 mb-12;
+  }
 
-    .pricing-card {
-      @apply bg-white border border-zinc-200 rounded-2xl p-8 relative flex flex-col;
+  .pricing-card {
+    @apply bg-white border border-zinc-200 rounded-3xl p-8 relative flex flex-col shadow-[0_20px_50px_-30px_rgba(15,23,42,0.45)];
+  }
 
-      &.featured {
-        @apply border-primary shadow-xl scale-105 md:scale-100;
-      }
+  .pricing-card::before {
+    @apply absolute inset-0 rounded-3xl border border-transparent pointer-events-none;
+    background: linear-gradient(
+        140deg,
+        rgba(249, 115, 22, 0.2),
+        transparent 60%
+      )
+      border-box;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
 
-      h3 {
-        @apply text-2xl font-serif font-bold text-zinc-900 mb-4;
-      }
+  .pricing-card.featured {
+    @apply border-primary shadow-xl scale-[1.03] md:scale-100;
+  }
 
-      .price {
-        @apply text-4xl font-bold text-primary mb-6;
+  .pricing-card.featured::after {
+    @apply absolute -top-8 -right-6 w-24 h-24 rounded-full bg-primary/10 blur-2xl;
+    content: "";
+  }
 
-        span {
-          @apply text-lg text-zinc-500 font-normal;
-        }
-      }
+  .pricing-card__top h3 {
+    @apply text-2xl font-serif font-bold text-zinc-900 mb-3;
+  }
 
-      .features {
-        @apply list-none p-0 mb-8 space-y-3 flex-grow;
+  .plan-description {
+    @apply text-sm text-zinc-600 mb-6;
+  }
 
-        li {
-          @apply flex items-center text-zinc-600;
+  .price {
+    @apply text-4xl font-bold text-primary mb-3;
+  }
 
-          &:before {
-            @apply content-['✓'] mr-3 text-primary font-bold;
-          }
-        }
-      }
+  .price span {
+    @apply text-lg text-zinc-500 font-normal;
+  }
 
-      .btn {
-        @apply w-full mt-auto;
-      }
+  .price-note {
+    @apply text-xs text-zinc-500 uppercase tracking-widest font-semibold;
+  }
+
+  .features {
+    @apply list-none p-0 mt-6 mb-8 space-y-3 flex-grow;
+  }
+
+  .features li {
+    @apply flex items-start gap-3 text-zinc-600;
+  }
+
+  .features li::before {
+    @apply content-['✓'] text-primary font-bold;
+  }
+
+  .pricing-card__foot {
+    @apply mt-auto;
+  }
+
+  .badge {
+    @apply absolute -top-4 left-8 px-3 py-1 rounded-full bg-primary text-white text-xs font-bold tracking-[0.2em] shadow-md;
+  }
+
+  .btn-note {
+    @apply text-xs text-zinc-500 mt-3 text-center;
+  }
+
+  .pricing-value {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-6 mt-10;
+  }
+
+  .value-card {
+    @apply bg-white/80 border border-white rounded-2xl p-6 shadow-sm;
+    backdrop-filter: blur(6px);
+  }
+
+  .value-card h4 {
+    @apply text-lg font-semibold text-zinc-900 mb-2;
+  }
+
+  .value-card p {
+    @apply text-sm text-zinc-600 leading-relaxed;
+  }
+
+  .pricing-faq {
+    @apply py-16 bg-white;
+  }
+
+  .pricing-faq__inner {
+    @apply max-w-6xl mx-auto px-6;
+  }
+
+  .pricing-faq h2 {
+    @apply text-3xl md:text-4xl font-serif font-bold text-zinc-900 mb-10;
+  }
+
+  .faq-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+  }
+
+  .faq-item {
+    @apply bg-zinc-50 border border-zinc-200 rounded-2xl p-6;
+  }
+
+  .faq-item h4 {
+    @apply text-lg font-semibold text-zinc-900 mb-2;
+  }
+
+  .faq-item p {
+    @apply text-sm text-zinc-600 leading-relaxed;
+  }
+
+  @keyframes pricing-toggle {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(32px);
     }
   }
 
@@ -1042,193 +1234,191 @@
 
   /* Contact Form Styles */
   .contact-page {
-    @apply bg-white;
+    @apply bg-[#f7f4ef] text-zinc-900;
+  }
+
+  .contact-main {
+    @apply min-h-screen;
+    background:
+      radial-gradient(
+        circle at 15% 15%,
+        rgba(249, 115, 22, 0.18),
+        transparent 45%
+      ),
+      radial-gradient(
+        circle at 85% 10%,
+        rgba(59, 130, 246, 0.15),
+        transparent 45%
+      ),
+      linear-gradient(180deg, #fdfbf7 0%, #f7f4ef 100%);
   }
 
   .contact-hero {
-    @apply mb-16;
-
-    h1 {
-      @apply text-5xl md:text-6xl font-serif font-bold text-zinc-900 mb-6;
-    }
-
-    .contact-subtitle {
-      @apply text-xl text-zinc-600 max-w-2xl;
-    }
+    @apply pt-28 pb-16;
   }
 
-  .contact-info-section {
-    @apply mb-20;
+  .contact-hero__inner {
+    @apply max-w-6xl mx-auto px-6 text-center;
+  }
+
+  .contact-badge {
+    @apply inline-flex items-center px-4 py-2 rounded-full text-xs font-bold uppercase tracking-[0.3em] bg-white/90 border border-white shadow-sm;
+  }
+
+  .contact-hero h1 {
+    @apply mt-6 text-4xl md:text-6xl font-serif font-bold text-zinc-900 leading-[1.05];
+  }
+
+  .contact-subtitle {
+    @apply mt-6 text-lg md:text-xl text-zinc-600 max-w-3xl mx-auto leading-relaxed;
+  }
+
+  .contact-hero__meta {
+    @apply mt-10 grid grid-cols-1 md:grid-cols-3 gap-4;
+  }
+
+  .meta-card {
+    @apply bg-white/80 border border-white rounded-2xl p-5 text-left shadow-sm;
+    backdrop-filter: blur(6px);
+  }
+
+  .meta-card h4 {
+    @apply text-sm uppercase tracking-[0.2em] text-zinc-500 font-semibold mb-2;
+  }
+
+  .meta-card p {
+    @apply text-base font-semibold text-zinc-900;
+  }
+
+  .contact-shell {
+    @apply pb-20;
+  }
+
+  .contact-grid {
+    @apply max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-10;
+  }
+
+  .contact-form-panel {
+    @apply bg-white rounded-3xl border border-zinc-200 p-8 md:p-10 shadow-[0_30px_70px_-45px_rgba(15,23,42,0.6)];
+  }
+
+  .form-header {
+    @apply mb-8;
 
     h2 {
-      @apply text-4xl font-serif font-bold text-zinc-900 mb-12;
+      @apply text-3xl font-serif font-bold text-zinc-900 mb-3;
     }
 
-    .contact-methods {
-      @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8;
-
-      .contact-method {
-        @apply bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border border-blue-100 hover:shadow-lg transition-all duration-300;
-
-        .method-icon {
-          @apply w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-600;
-
-          svg {
-            @apply w-6 h-6;
-          }
-        }
-
-        h3 {
-          @apply text-lg font-serif font-bold text-zinc-900 mb-3;
-        }
-
-        p {
-          @apply text-sm text-zinc-600 mb-2;
-
-          a {
-            @apply text-blue-600 font-semibold hover:text-blue-700 transition-colors;
-          }
-        }
-
-        .method-desc {
-          @apply text-xs text-zinc-500 font-normal;
-        }
-      }
+    p {
+      @apply text-zinc-600;
     }
   }
 
-  .contact-form-section {
-    @apply mb-20;
+  .contact-form {
+    @apply space-y-6;
+  }
 
-    .form-container {
-      @apply max-w-2xl mx-auto bg-white rounded-2xl border border-zinc-100 p-8 md:p-12 shadow-lg;
+  .contact-form .form-group {
+    @apply flex flex-col;
+  }
 
-      .form-header {
-        @apply mb-8;
+  .contact-form .form-group label {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500 mb-2;
+  }
 
-        h2 {
-          @apply text-3xl font-serif font-bold text-zinc-900 mb-3;
-        }
+  .contact-form .form-group input,
+  .contact-form .form-group textarea,
+  .contact-form .form-group select {
+    @apply w-full px-4 py-3 rounded-xl border border-zinc-200 bg-white text-zinc-900 placeholder-zinc-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-transparent;
 
-        p {
-          @apply text-zinc-600;
-        }
-      }
-
-      .contact-form {
-        @apply space-y-6;
-
-        .form-group {
-          @apply flex flex-col;
-
-          label {
-            @apply text-sm font-semibold text-zinc-900 mb-2;
-          }
-
-          input,
-          textarea,
-          select {
-            @apply w-full px-4 py-3 rounded-lg border border-zinc-200 bg-white text-zinc-900 placeholder-zinc-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
-
-            &:hover {
-              @apply border-zinc-300;
-            }
-          }
-
-          textarea {
-            @apply resize-y min-h-32;
-          }
-        }
-
-        .form-row {
-          @apply grid grid-cols-1 md:grid-cols-2 gap-6;
-        }
-
-        .btn {
-          @apply w-full mt-4;
-        }
-      }
-
-      .form-success {
-        @apply text-center py-12;
-
-        .success-icon {
-          @apply text-6xl text-green-500 mb-4 animate-bounce;
-        }
-
-        h3 {
-          @apply text-2xl font-serif font-bold text-zinc-900 mb-3;
-        }
-
-        p {
-          @apply text-zinc-600 mb-6;
-        }
-
-        .btn {
-          @apply max-w-xs mx-auto;
-        }
-      }
-
-      .form-error {
-        @apply text-center py-12;
-
-        .error-icon {
-          @apply text-6xl text-red-500 mb-4;
-        }
-
-        h3 {
-          @apply text-2xl font-serif font-bold text-zinc-900 mb-3;
-        }
-
-        p {
-          @apply text-zinc-600 mb-6;
-        }
-
-        .btn {
-          @apply max-w-xs mx-auto;
-        }
-      }
-
-      .form-alert {
-        @apply rounded-lg p-4 mb-6 border;
-
-        &.form-alert-error {
-          @apply bg-red-50 border-red-200;
-
-          .alert-title {
-            @apply text-sm font-bold text-red-700 mb-2;
-          }
-
-          .alert-message {
-            @apply text-sm text-red-600 leading-relaxed;
-          }
-        }
-
-        &.form-alert-success {
-          @apply bg-green-50 border-green-200;
-
-          .alert-title {
-            @apply text-sm font-bold text-green-700 mb-2;
-          }
-
-          .alert-message {
-            @apply text-sm text-green-600 leading-relaxed;
-          }
-        }
-
-        &.form-alert-warning {
-          @apply bg-yellow-50 border-yellow-200;
-
-          .alert-title {
-            @apply text-sm font-bold text-yellow-700 mb-2;
-          }
-
-          .alert-message {
-            @apply text-sm text-yellow-600 leading-relaxed;
-          }
-        }
-      }
+    &:hover {
+      @apply border-zinc-300;
     }
+  }
+
+  .contact-form .form-group textarea {
+    @apply resize-y min-h-32;
+  }
+
+  .contact-form .form-row {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+  }
+
+  .contact-state {
+    @apply text-center py-8 px-4;
+  }
+
+  .contact-state .state-icon {
+    @apply inline-flex items-center justify-center text-sm font-bold uppercase tracking-[0.3em] text-zinc-700 mb-4;
+  }
+
+  .contact-state h3 {
+    @apply text-2xl font-serif font-bold text-zinc-900 mb-2;
+  }
+
+  .contact-state p {
+    @apply text-zinc-600 mb-6;
+  }
+
+  .contact-state--success {
+    @apply bg-emerald-50 border border-emerald-100 rounded-2xl;
+  }
+
+  .contact-state--error {
+    @apply bg-red-50 border border-red-100 rounded-2xl;
+  }
+
+  .form-alert {
+    @apply rounded-lg p-4 mb-2 border;
+  }
+
+  .form-alert.form-alert-error {
+    @apply bg-red-50 border-red-200;
+
+    .alert-title {
+      @apply text-sm font-bold text-red-700 mb-2;
+    }
+
+    .alert-message {
+      @apply text-sm text-red-600 leading-relaxed;
+    }
+  }
+
+  .contact-info-panel {
+    @apply space-y-6;
+  }
+
+  .contact-info-card {
+    @apply bg-white/80 border border-white rounded-3xl p-6 shadow-sm;
+    backdrop-filter: blur(6px);
+  }
+
+  .contact-info-card h3 {
+    @apply text-xl font-serif font-bold text-zinc-900 mb-3;
+  }
+
+  .contact-info-card p {
+    @apply text-sm text-zinc-600 leading-relaxed;
+  }
+
+  .contact-info-card--accent {
+    @apply bg-gradient-to-br from-orange-50 to-white border-orange-100;
+  }
+
+  .contact-links {
+    @apply mt-6 space-y-4;
+  }
+
+  .contact-links span {
+    @apply block text-xs uppercase tracking-[0.2em] text-zinc-500 font-semibold mb-1;
+  }
+
+  .contact-links a {
+    @apply text-base font-semibold text-zinc-900 hover:text-primary transition-colors;
+  }
+
+  .contact-list {
+    @apply mt-4 space-y-2 text-sm text-zinc-600;
   }
 
   /* Formspree ValidationError Styling */
