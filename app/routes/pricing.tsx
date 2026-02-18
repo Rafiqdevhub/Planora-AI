@@ -17,7 +17,6 @@ export const meta: MetaFunction = () => {
     },
   ];
 };
-
 const Pricing = () => {
   return (
     <div className="pricing-page">
