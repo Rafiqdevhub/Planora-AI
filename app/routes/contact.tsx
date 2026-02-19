@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import Navbar from "~/components/Navbar";
-import { Footer } from "~/components/Footer";
 import type { MetaFunction } from "react-router";
 import { Send } from "lucide-react";
 import { useForm, ValidationError } from "@formspree/react";
