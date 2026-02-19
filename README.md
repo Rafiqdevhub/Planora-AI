@@ -175,18 +175,4 @@ The project uses TypeScript for full type safety. Run type checking:
 npm run typecheck
 ```
 
-## Contributing
 
-Contributions are welcome! Please ensure:
-
-- All TypeScript types are properly defined
-- Follow the existing code structure
-- Test changes thoroughly before submitting
-
-## License
-
-Please check the repository for license information.
-
-## Support
-
-For issues, feature requests, or questions, please open an issue in the repository.
